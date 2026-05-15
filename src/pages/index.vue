@@ -1,7 +1,4 @@
 <script setup lang="ts">
-definePage({
-  type: 'home',
-})
 </script>
 
 <template>

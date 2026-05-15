@@ -8,34 +8,25 @@ import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig } from 'vite'
 import UniPolyfill from 'vite-plugin-uni-polyfill'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    // https://uni-helper.js.org/vite-plugin-uni-manifest
     UniHelperManifest(),
-    // https://uni-helper.js.org/vite-plugin-uni-pages
     UniHelperPages({
       dts: 'src/uni-pages.d.ts',
     }),
-    // https://uni-helper.js.org/vite-plugin-uni-layouts
     UniHelperLayouts(),
-    // https://uni-helper.js.org/vite-plugin-uni-components
     UniHelperComponents({
       dts: 'src/components.d.ts',
       directoryAsNamespace: true,
     }),
-    // https://uni-helper.js.org/plugin-uni
     Uni(),
     UniPolyfill(),
-    // https://github.com/antfu/unplugin-auto-import
     AutoImport({
       imports: ['vue', '@vueuse/core', 'uni-app'],
       dts: 'src/auto-imports.d.ts',
       dirs: ['src/composables', 'src/stores', 'src/utils'],
       vueTemplate: true,
     }),
-    // https://github.com/antfu/unocss
-    // see unocss.config.ts for config
     UnoCSS(),
   ],
 })

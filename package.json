@@ -8,9 +8,15 @@
   "scripts": {
     "dev": "unh dev",
     "build": "unh build",
+    "dev:mp-weixin": "unh dev mp-weixin",
+    "build:mp-weixin": "unh build mp-weixin",
     "about": "unh info",
     "type-check": "vue-tsc --noEmit",
     "test": "vitest",
+    "test:run": "vitest run",
+    "test:watch": "vitest watch",
+    "test:cov": "vitest --coverage",
+    "test:ui": "vitest --ui",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "postinstall": "npx simple-git-hooks"
@@ -57,6 +63,7 @@
     "@uni-helper/vite-plugin-uni-manifest": "^0.2.9",
     "@uni-helper/vite-plugin-uni-pages": "^0.3.19",
     "@unocss/eslint-config": "^66.3.3",
+    "@vitest/coverage-v8": "4.0.18",
     "@vue/runtime-core": "3.4.21",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.32.0",

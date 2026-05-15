@@ -6,7 +6,7 @@ export default defineConfig({
     environmentOptions: {
       uniapp: {
         platform: 'mp-weixin',
-        projectPath: './src',
+        projectPath: '.',
         port: 5121,
       },
     },
