@@ -1,6 +1,3 @@
-import { defineStore } from 'pinia'
-import { ref } from 'vue'
-
 /**
  * 计数器示例 store
  * 演示 Pinia 基础用法（Option Store 风格）

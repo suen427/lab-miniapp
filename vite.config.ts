@@ -22,7 +22,7 @@ export default defineConfig({
     Uni(),
     UniPolyfill(),
     AutoImport({
-      imports: ['vue', '@vueuse/core', 'uni-app'],
+      imports: ['vue', 'pinia', '@vueuse/core', 'uni-app'],
       dts: 'src/auto-imports.d.ts',
       dirs: ['src/composables', 'src/stores', 'src/utils'],
       vueTemplate: true,

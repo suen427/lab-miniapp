@@ -7,10 +7,10 @@ export default defineUniPages({
     backgroundColorBottom: '@bgColorBottom',
     backgroundColorTop: '@bgColorTop',
     backgroundTextStyle: '@bgTxtStyle',
-    navigationBarBackgroundColor: '#000000',
+    navigationBarBackgroundColor: '#ffffff',
     navigationBarTextStyle: '@navTxtStyle',
     navigationBarTitleText: 'Vitesse-Uni',
-    navigationStyle: 'custom',
+    navigationStyle: 'default',
   },
   // tabBar: {
   //   backgroundColor: "@tabBgColor",
