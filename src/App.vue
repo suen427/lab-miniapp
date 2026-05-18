@@ -21,3 +21,12 @@ onLaunch(() => {
   }
 })
 </script>
+
+<!-- 全局样式 -->
+<style lang="scss">
+/**
+ * 引入 uni-app 内置组件样式重置
+ * 覆盖所有内置组件的默认样式，使其与 uni.scss 设计令牌保持一致
+ */
+@import '@/styles/uni-reset.scss';
+</style>

@@ -1,0 +1,259 @@
+/**
+ * uni-app 内置组件样式重置
+ *
+ * 重置 uni-app 所有内置组件的原生样式，使其与 uni.scss 中定义的设计令牌保持一致。
+ * 本文件在 App.vue 的全局样式块中 @import 引入。
+ *
+ * 覆盖机制：
+ * - 微信小程序原生组件有各自的默认样式（如 button[type="primary"] 默认绿色 #07c160），
+ *   此处通过标签选择器 + !important 强制覆盖为设计令牌中的品牌色
+ * - 修改 uni.scss 中的设计令牌变量即可统一切换主题，无需改动此文件
+ */
+
+// ============================================================
+// 一、Button 按钮
+// ============================================================
+
+/* 微信原生 primary 类型按钮 — 主色 */
+button[type="primary"] {
+  background-color: $brand-primary !important;
+  border-color: $brand-primary !important;
+  color: $text-inverse !important;
+
+  /* 按下态 */
+  &:active {
+    background-color: $brand-primary-dark !important;
+    border-color: $brand-primary-dark !important;
+  }
+}
+
+/* primary 按钮禁用态 */
+button[type="primary"][disabled] {
+  background-color: mix(#ffffff, $brand-primary, 50%) !important;
+  border-color: mix(#ffffff, $brand-primary, 50%) !important;
+  color: $text-inverse !important;
+}
+
+/* 微信原生 warn 类型按钮 — 错误色 */
+button[type="warn"] {
+  background-color: $functional-error !important;
+  border-color: $functional-error !important;
+  color: $text-inverse !important;
+
+  &:active {
+    background-color: mix(#000000, $functional-error, 20%) !important;
+    border-color: mix(#000000, $functional-error, 20%) !important;
+  }
+}
+
+/* warn 按钮禁用态 */
+button[type="warn"][disabled] {
+  background-color: mix(#ffffff, $functional-error, 50%) !important;
+  border-color: mix(#ffffff, $functional-error, 50%) !important;
+}
+
+/* 微信原生 default 类型按钮 */
+button[type="default"] {
+  background-color: $bg-primary !important;
+  border-color: $border-color !important;
+  color: $text-primary !important;
+
+  &:active {
+    background-color: $bg-hover !important;
+  }
+}
+
+/* default 按钮禁用态 */
+button[type="default"][disabled] {
+  background-color: $bg-hover !important;
+  border-color: $border-color-light !important;
+  color: $text-disabled !important;
+}
+
+/* 去除微信小程序按钮默认的 ::after 边框伪元素 */
+button::after {
+  display: none !important;
+}
+
+/* mini 尺寸按钮 */
+button[size="mini"] {
+  font-size: $font-size-sm;
+}
+
+/* 镂空按钮 */
+button[plain] {
+  background-color: transparent;
+}
+
+button[plain][type="primary"] {
+  color: $brand-primary;
+  border-color: $brand-primary;
+  background-color: transparent;
+}
+
+button[plain][type="warn"] {
+  color: $functional-error;
+  border-color: $functional-error;
+  background-color: transparent;
+}
+
+button[plain][type="default"] {
+  color: $text-primary;
+  border-color: $border-color;
+  background-color: transparent;
+}
+
+// ============================================================
+// 二、Input 输入框
+// ============================================================
+
+input {
+  color: $text-primary;
+  font-size: $font-size-base;
+  caret-color: $brand-primary; /* 光标色 */
+}
+
+/* 占位符 */
+input::-webkit-input-placeholder,
+input::placeholder {
+  color: $text-placeholder !important;
+  font-size: $font-size-base !important;
+}
+
+/* 禁用输入框 */
+input[disabled] {
+  color: $text-disabled;
+}
+
+// ============================================================
+// 三、Textarea 多行输入框
+// ============================================================
+
+textarea {
+  color: $text-primary;
+  font-size: $font-size-base;
+  caret-color: $brand-primary; /* 光标色 */
+}
+
+textarea::-webkit-input-placeholder,
+textarea::placeholder {
+  color: $text-placeholder !important;
+  font-size: $font-size-base !important;
+}
+
+textarea[disabled] {
+  color: $text-disabled;
+}
+
+// ============================================================
+// 四、Text 文本
+// ============================================================
+
+text {
+  color: $text-primary;
+  font-size: $font-size-base;
+}
+
+// ============================================================
+// 五、Image 图片
+// ============================================================
+
+image {
+  /* 默认宽度/高度由具体使用处定义，此处仅做基础重置 */
+  background-color: $bg-secondary;
+}
+
+// ============================================================
+// 六、Navigator 页面导航
+// ============================================================
+
+navigator {
+  color: $text-primary;
+  text-decoration: none;
+}
+
+// ============================================================
+// 七、View 容器
+// ============================================================
+
+view {
+  box-sizing: border-box;
+}
+
+// ============================================================
+// 八、Picker 选择器
+// ============================================================
+
+picker {
+  color: $text-primary;
+  font-size: $font-size-base;
+}
+
+// ============================================================
+// 九、Label 标签
+// ============================================================
+
+label {
+  color: $text-primary;
+  font-size: $font-size-base;
+}
+
+// ============================================================
+// 十、Scroll-View 可滚动视图
+// ============================================================
+
+scroll-view {
+  box-sizing: border-box;
+}
+
+// ============================================================
+// 十一、Swiper 轮播
+// ============================================================
+
+swiper {
+  box-sizing: border-box;
+}
+
+swiper-item {
+  box-sizing: border-box;
+}
+
+// ============================================================
+// 十二、Rich-Text 富文本
+// ============================================================
+
+rich-text {
+  color: $text-primary;
+  font-size: $font-size-base;
+}
+
+// ============================================================
+// 十三、Checkbox 复选框
+// ============================================================
+
+/* 复选框输入框 */
+checkbox .wx-checkbox-input {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: $radius-sm;
+  border: 2rpx solid $border-color-medium;
+  background-color: $bg-primary;
+}
+
+/* 复选框选中态 */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+}
+
+/* 复选框选中后的勾选图标 */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  color: $text-inverse;
+  font-size: 28rpx;
+}
+
+/* 复选框禁用态 */
+checkbox .wx-checkbox-input.wx-checkbox-input-disabled {
+  background-color: $bg-hover;
+  border-color: $border-color-light;
+}

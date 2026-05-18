@@ -11,5 +11,8 @@ declare module 'vue' {
     AppLogos: typeof import('./components/AppLogos.vue')['default']
     HiCounter: typeof import('./components/HiCounter.vue')['default']
     InputEntry: typeof import('./components/InputEntry.vue')['default']
+    UniCalendar: typeof import('@dcloudio/uni-ui/lib/uni-calendar/uni-calendar.vue')['default']
+    UniIcons: typeof import('@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue')['default']
+    UniNavBar: typeof import('@dcloudio/uni-ui/lib/uni-nav-bar/uni-nav-bar.vue')['default']
   }
 }

@@ -21,7 +21,7 @@ useAuthGuard()
   </view>
 
   <!-- 认证就绪且已登录：正常内容 -->
-  <view v-else class="px-10 py-20 text-center">
+  <view p-25rpx text-center>
     <slot />
     <app-footer />
     <view class="mx-auto mt-5 text-center text-sm opacity-25">

@@ -16,6 +16,7 @@
 | 状态管理 | Pinia |
 | 样式方案 | UnoCSS + `@uni-helper/unocss-preset-uni` |
 | 图标库 | Carbon Icons（`@iconify-json/carbon`） |
+| UI 组件库 | uni-ui（`@dcloudio/uni-ui`），通过插件自动导入 |
 | 自动导入 | `unplugin-auto-import`（vue/pinia/@vueuse/core/uni-app） |
 | 测试 | Vitest + `vitest-environment-uniapp` |
 | 代码规范 | ESLint（`@uni-helper/eslint-config`） |
@@ -316,6 +317,62 @@ const { count } = storeToRefs(useCounterStore())
 - `i-carbon:add` / `i-carbon:subtract` — 加/减
 - `i-carbon:campsite` — 首页
 
+## uni-ui 组件库
+
+项目集成了 `@dcloudio/uni-ui` 官方组件库，所有 uni-ui 组件均已配置自动导入，在模板中直接使用即可，无需手动 import。
+
+### 自动导入配置
+
+已在 `vite.config.ts` 的 `UniHelperComponents` 插件中配置 `UniUIResolver()`：
+
+```typescript
+UniHelperComponents({
+  dts: 'src/components.d.ts',
+  directoryAsNamespace: true,
+  resolvers: [UniUIResolver()],
+})
+```
+
+### 组件使用示例
+
+```html
+<!-- 表单组件 -->
+<uni-easyinput v-model="value" placeholder="请输入内容" />
+<uni-forms ref="formRef" :modelValue="formData">
+  <uni-forms-item label="用户名" name="username">
+    <uni-easyinput v-model="formData.username" placeholder="请输入用户名" />
+  </uni-forms-item>
+</uni-forms>
+
+<!-- 反馈组件 -->
+<uni-popup ref="popup" type="center">
+  <text>弹窗内容</text>
+</uni-popup>
+
+<!-- 数据展示 -->
+<uni-card title="卡片标题" is-full>
+  <text>卡片内容</text>
+</uni-card>
+
+<uni-list>
+  <uni-list-item title="列表项一" />
+  <uni-list-item title="列表项二" />
+</uni-list>
+
+<!-- 导航组件 -->
+<uni-nav-bar left-icon="back" title="导航标题" />
+
+<!-- 加载组件 -->
+<uni-load-more status="more" />
+```
+
+### 注意事项
+
+- uni-ui 组件无需 import，直接在模板中使用即可
+- 部分 uni-ui 组件需接收 ref 手动调用方法（如 `uni-popup`）
+- 组件 `v-model` 用法与 Vue 3 标准一致
+- 跨平台兼容性请参考 [uni-ui 官方文档](https://uniapp.dcloud.net.cn/component/uni-ui/uni-ui.html)
+
 ### UI 单位
 
 使用 `rpx` 作为尺寸单位（小程序适配）：
@@ -339,6 +396,7 @@ const { count } = storeToRefs(useCounterStore())
 |------|------------|
 | `vue` | ref, computed, watch, onMounted, onLoad, onShow, nextTick, defineComponent, reactive 等 |
 | `pinia` | defineStore, storeToRefs, acceptHMRUpdate |
+| `@dcloudio/uni-ui` | 所有 uni-ui 组件（通过 `UniUIResolver` 自动导入） |
 | `@vueuse/core` | useStorage, useDebounceFn 等全部 VueUse API |
 | `uni-app` | onLaunch, onShow, onHide, onLoad, getCurrentPages 等生命周期 |
 | `src/composables/` | 所有 composable（useAuthGuard, useQuery, useCount 等） |
@@ -374,7 +432,7 @@ pnpm lint:fix
 | `unh.config.ts` | unh 构建工具配置（平台、自动生成开关） |
 | `manifest.config.ts` | 应用 manifest 配置（名称、AppID、权限等） |
 | `uno.config.ts` | UnoCSS 预设与插件配置 |
-| `vite.config.ts` | Vite 插件配置（含 AutoImport 规则） |
+| `vite.config.ts` | Vite 插件配置（含 AutoImport 规则、UniUIResolver 自动导入 uni-ui 组件） |
 
 ## 微信小程序注意事项
 

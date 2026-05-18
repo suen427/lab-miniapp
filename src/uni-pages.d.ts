@@ -5,9 +5,17 @@
 
 type _LocationUrl =
   "/pages/index" |
+  "/pages/component" |
   "/pages/hi" |
   "/pages/demo/index" |
-  "/pages/login/index";
+  "/pages/login/index" |
+  "/pages/component/ad/ad" |
+  "/pages/component/audio/audio" |
+  "/pages/component/button/button" |
+  "/pages/component/canvas/canvas" |
+  "/pages/component/checkbox/checkbox" |
+  "/pages/component/cover-view/cover-view" |
+  "/pages/component/editor/editor";
 
 interface NavigateToOptions {
   url: _LocationUrl;
