@@ -1,0 +1,75 @@
+# ============================================
+# Git Attributes - 跨平台换行符统一配置
+# 确保不同操作系统（Windows/macOS/Linux）之间
+# 的换行符不会相互干扰
+# ============================================
+
+# 自动检测文本文件，并标准化为 LF
+* text=auto eol=lf
+
+# ===== 前端源码文件 - 强制 LF =====
+*.js        text eol=lf
+*.jsx       text eol=lf
+*.ts        text eol=lf
+*.tsx       text eol=lf
+*.vue       text eol=lf
+*.html      text eol=lf
+*.css       text eol=lf
+*.scss      text eol=lf
+*.less      text eol=lf
+*.json      text eol=lf
+*.xml       text eol=lf
+*.svg       text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.md        text eol=lf
+
+# ===== 微信小程序源文件 - 强制 LF =====
+*.wxml      text eol=lf
+*.wxss      text eol=lf
+*.wxs       text eol=lf
+
+# ===== 配置文件 =====
+*.config.*  text eol=lf
+*.conf      text eol=lf
+Dockerfile  text eol=lf
+Makefile    text eol=lf
+*.make      text eol=lf
+
+# ===== Shell 脚本 - 强制 LF =====
+*.sh        text eol=lf
+*.bash      text eol=lf
+*.zsh       text eol=lf
+
+# ===== 批处理文件 - 保留 CRLF =====
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+*.ps1       text eol=lf
+
+# ===== 二进制文件 - 禁止换行符转换 =====
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.webp      binary
+*.ico       binary
+*.svg       binary
+*.eot       binary
+*.ttf       binary
+*.woff      binary
+*.woff2     binary
+*.mp4       binary
+*.webm      binary
+*.ico       binary
+*.pdf       binary
+*.zip       binary
+*.tar       binary
+*.gz        binary
+*.7z        binary
+*.psd       binary
+*.ai        binary
+
+# ===== lock 文件 =====
+pnpm-lock.yaml  text eol=lf
+package-lock.json text eol=lf
+yarn.lock       text eol=lf
