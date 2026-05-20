@@ -193,7 +193,7 @@ export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = computed(() => !!token.value)
 
   function initAuth()               // 从 storage 恢复登录态
-  function loginWithPassword(account, password): Promise<boolean>  // Mock 登录
+  function loginWithPassword(userName, password): Promise<boolean>  // Mock 登录
   function loginWithWechat(): Promise<boolean>                      // Mock 微信授权
   function logout()                  // 清除状态并跳转登录页
 })

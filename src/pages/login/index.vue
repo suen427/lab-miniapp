@@ -17,8 +17,8 @@ const authStore = useAuthStore()
 const activeTab = ref<'password' | 'wechat'>('password')
 
 // ===== 表单状态 =====
-const account = ref('')
-const password = ref('')
+const userName = ref('admin')
+const password = ref('qweasd123@')
 const loginLoading = ref(false)
 const wechatLoading = ref(false)
 const errorMsg = ref('')
@@ -67,7 +67,7 @@ function navigateAfterLogin() {
  */
 async function handlePasswordLogin() {
   // 表单校验
-  if (!account.value.trim()) {
+  if (!userName.value.trim()) {
     errorMsg.value = '请输入账号'
     uni.showToast({ icon: 'none', title: '请输入账号' })
     return
@@ -82,7 +82,7 @@ async function handlePasswordLogin() {
   errorMsg.value = ''
 
   try {
-    const success = await authStore.loginWithPassword(account.value.trim(), password.value.trim())
+    const success = await authStore.loginWithPassword(userName.value.trim(), password.value.trim())
     if (success) {
       uni.showToast({ icon: 'success', title: '登录成功' })
       navigateAfterLogin()
@@ -176,7 +176,7 @@ async function handleWechatLogin() {
         <view class="input-group">
           <view class="input-icon i-carbon:user-avatar" />
           <input
-            v-model="account"
+            v-model="userName"
             class="form-input"
             type="text"
             placeholder="请输入账号"
@@ -217,7 +217,7 @@ async function handleWechatLogin() {
 
         <!-- 提示信息 -->
         <view class="hint-text">
-          <text>测试账号：admin / 123456</text>
+          <text>账号：admin / qweasd123@</text>
         </view>
       </view>
 

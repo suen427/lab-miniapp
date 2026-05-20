@@ -14,8 +14,7 @@ type _LocationUrl =
   "/pages/component/button/button" |
   "/pages/component/canvas/canvas" |
   "/pages/component/checkbox/checkbox" |
-  "/pages/component/cover-view/cover-view" |
-  "/pages/component/editor/editor";
+  "/pages/component/cover-view/cover-view";
 
 interface NavigateToOptions {
   url: _LocationUrl;

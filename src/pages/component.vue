@@ -23,7 +23,7 @@ const components = [
   { name: 'Audio 音频', path: '/pages/component/audio/audio', icon: 'i-carbon:volume-up' },
   { name: 'Canvas 画布', path: '/pages/component/canvas/canvas', icon: 'i-carbon:pen' },
   { name: 'Cover-View 覆盖视图', path: '/pages/component/cover-view/cover-view', icon: 'i-carbon:layers' },
-  { name: 'Ad 广告', path: '/pages/component/ad/ad', icon: 'i-carbon:ad' },
+  { name: 'Ad 广告', path: '/pages/component/ad/ad', icon: 'i-carbon:badge' },
 ]
 
 /**
